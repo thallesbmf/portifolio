@@ -1,0 +1,288 @@
+/* Reset e Fontes */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #0f0c29; /* Fundo escuro base */
+    /* Gradiente bonito para o fundo */
+    background: linear-gradient(to right, #24243e, #302b63, #0f0c29); 
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita rolagem lateral */
+    color: white;
+    position: relative;
+}
+
+/* --- Bolas Coloridas no Fundo (Ambient Light) --- */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px); /* O segredo do brilho suave */
+    z-index: -1;
+    animation: floatBackground 10s infinite alternate;
+}
+
+.c1 {
+    width: 300px;
+    height: 300px;
+    background: #ff00cc; /* Rosa Neon */
+    top: 10%;
+    left: 10%;
+}
+
+.c2 {
+    width: 400px;
+    height: 400px;
+    background: #3333ff; /* Azul Neon */
+    bottom: 10%;
+    right: 10%;
+}
+
+@keyframes floatBackground {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(50px, 50px); }
+}
+
+/* --- Navegação Glassmorphism --- */
+.glass-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+    
+    /* O Efeito de Vidro */
+    background: rgba(255, 255, 255, 0.05); /* Branco quase transparente */
+    backdrop-filter: blur(10px); /* Desfoque do que está atrás */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+    
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: white;
+}
+
+.btn-login {
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 8px 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    background: white;
+    color: #302b63;
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 8%;
+    height: 85vh; /* Ocupa quase a tela toda */
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #fff, #b3b3b3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+    max-width: 500px;
+}
+
+.cta-group {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-primary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #ff00cc, #3333ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 0, 204, 0.4);
+    transition: transform 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    padding: 15px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* --- Visual do Cartão Flutuante (Lado Direito) --- */
+.hero-visual {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* O Cartão Bancário */
+.glass-card {
+    width: 380px;
+    height: 230px;
+    
+    /* Estilo Vidro Fosco Intenso */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    z-index: 2;
+    transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+    transition: transform 0.5s;
+    animation: floatCard 6s ease-in-out infinite;
+}
+
+.glass-card:hover {
+    transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+}
+
+/* Elementos internos do cartão */
+.card-chip {
+    width: 50px;
+    height: 35px;
+    background: linear-gradient(135deg, #d4af37, #f2d06b);
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.card-number {
+    font-size: 1.5rem;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.card-details {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+/* Logo Mastercad simulado */
+.mastercard-logo {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+}
+.circle-red, .circle-orange {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    opacity: 0.8;
+}
+.circle-red { background: #eb001b; margin-right: -15px; }
+.circle-orange { background: #ff5f00; }
+
+/* O painel de saldo flutuante atrás */
+.floating-balance {
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    padding: 15px 25px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 3; /* Fica na frente do cartão */
+    animation: floatCard 6s ease-in-out infinite reverse; /* Flutua ao contrário */
+}
+
+.floating-balance h3 {
+    font-size: 1.2rem;
+    margin: 5px 0;
+}
+
+.floating-balance .profit {
+    color: #00ff88;
+    font-size: 0.8rem;
+}
+
+/* Animação de flutuação */
+@keyframes floatCard {
+    0%, 100% { transform: translateY(0) perspective(1000px) rotateY(-10deg); }
+    50% { transform: translateY(-20px) perspective(1000px) rotateY(-10deg); }
+}
+
+/* Responsividade Mobile */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+    }
+    
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 50px;
+    }
+
+    .hero-visual {
+        width: 100%;
+    }
+    
+    .cta-group {
+        justify-content: center;
+    }
+}

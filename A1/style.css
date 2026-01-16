@@ -1,0 +1,188 @@
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Fonte limpa */
+}
+
+body {
+    background-color: #fff;
+    color: #111;
+}
+
+/* --- Cabeçalho --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    /* Linha sutil embaixo do menu, típico de e-commerce */
+    border-bottom: 1px solid #e5e5e5; 
+}
+
+.logo {
+    font-weight: 900;
+    font-size: 24px;
+    letter-spacing: -1px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+nav a:hover {
+    color: #757575;
+}
+
+.icons span {
+    margin-left: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- Hero Section (Título) --- */
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 1.2rem;
+}
+
+/* --- Grid de Produtos --- */
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px 60px 40px;
+}
+
+.container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.product-grid {
+    display: grid;
+    /* Responsividade: cria colunas automáticas */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px;
+}
+
+/* --- Cartão do Produto --- */
+.product-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Área da Imagem (Fundo cinza clássico da Nike) */
+.image-box {
+    width: 100%;
+    height: 350px;
+    background-color: #f5f5f5; /* O cinza claro essencial */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Para o zoom não sair da caixa */
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Garante que a imagem preencha o quadrado */
+    transition: transform 0.5s ease;
+}
+
+/* Efeito de Zoom ao passar o mouse */
+.product-card:hover .image-box img {
+    transform: scale(1.05);
+}
+
+/* Informações do Produto */
+.details {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.info h3 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.category {
+    color: #757575;
+    font-size: 14px;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Botão de Comprar (Estilo Nike) */
+.btn-buy {
+    width: 100%;
+    padding: 15px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 30px; /* Borda arredondada */
+    margin-top: 15px;
+    cursor: pointer;
+    opacity: 0; /* Escondido por padrão */
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+    background-color: #333;
+}
+
+/* Mostra o botão quando passa o mouse no card */
+.product-card:hover .btn-buy {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Ajuste para mobile: Botão sempre visível em celulares */
+@media (max-width: 768px) {
+    .btn-buy {
+        opacity: 1;
+        transform: translateY(0);
+        margin-top: 10px;
+    }
+    
+    header {
+        padding: 20px;
+    }
+    
+    .container {
+        padding: 20px;
+    }
+}
